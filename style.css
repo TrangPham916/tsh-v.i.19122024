@@ -8,27 +8,34 @@ body {
   text-align: center;
 }
 
-/* Định dạng cho phần container */
-.container {
-  max-width: 600px;
-  margin: 100px;
-  padding: 20px;
-  /* background-color: white; */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 /* Background */
 .background {
   position: fixed; /* Cố định ảnh nền */
   top: 0;
   left: 0;
-  width: 100%; /* Phủ toàn bộ chiều rộng */
-  height: 100%; /* Phủ toàn bộ chiều cao */
-  background-size: cover; /* Ảnh phủ kín */
+  width: 100vw; /* Chiều rộng nền bằng chiều rộng viewport */
+  height: 100vh; /* Chiều cao nền bằng chiều cao viewport */
+  background-size: contain; /* Đảm bảo ảnh giữ tỷ lệ gốc */
   background-repeat: no-repeat; /* Không lặp ảnh */
-  background-position: center; /* Căn giữa ảnh */
+  background-position: center; /* Ảnh căn giữa */
   z-index: -1; /* Đưa thẻ nền ra sau nội dung */
+}
+
+/* Container */
+.container {
+  max-width: 90%; /* Giới hạn chiều rộng để container không chạm viền */
+  max-height: 90%; /* Giới hạn chiều cao tương tự */
+  width: auto; /* Để chiều rộng theo tỷ lệ */
+  height: auto; /* Để chiều cao theo tỷ lệ */
+  margin: auto; /* Căn giữa container */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute; /* Đặt container theo kích thước viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Căn giữa theo chiều ngang và dọc */
+  background-color: white; /* Màu nền container */
 }
 
 /* Định dạng cho logo */

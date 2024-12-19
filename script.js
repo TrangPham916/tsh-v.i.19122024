@@ -159,6 +159,13 @@ function getBalanceNumber(name) {
   }, 0);
   return reduceToSingleDigit(total);
 }
+ // Function to get the birthday nubmber
+ function getbirthdayNumber(day) {
+  const currentYear = new Date().getFullYear();
+  const sum =
+    reduceToSingleDigit(day);
+  return reduceToSingleDigit(sum);
+}
 
 // Function to get the core strength number
 function getCoreStrengthNumber(name) {
@@ -190,8 +197,6 @@ function getCoreStrengthNumber(name) {
   // Trả về kết quả
   return uniqueNumbers.length > 0 ? uniqueNumbers.join(", ") : "None";
 }
-
-
 
 
 // Function to get the personal year number
@@ -238,6 +243,7 @@ function calculateNumerology() {
   const destinyNumber = getDestinyNumber(name);
   const balanceNumber = getBalanceNumber(name);
   const coreStrengthNumber = getCoreStrengthNumber(name);
+  const birthdayNumber = getbirthdayNumber(day);
   const personalYearNumber = getPersonalYearNumber(day, month, year);
   const lessonDebt = getLessonDebt(name);
 
@@ -261,7 +267,7 @@ function calculateNumerology() {
   ).innerText = `Động Lực Bên Trong: ${soulUrgeNumber}`;
   document.getElementById(
     'attitudeNumber'
-  ).innerText = `Thái Độ Bên Ngoài: ${attitudeNumber}`;
+  ).innerText = `Thái Độ Thể Hiện: ${attitudeNumber}`;
   document.getElementById(
     'personalityNumber'
   ).innerText = `Phản Ứng Ban Đầu: ${personalityNumber}`;
@@ -272,11 +278,14 @@ function calculateNumerology() {
     'balanceNumber'
   ).innerText = `Cân Bằng Tâm Lý: ${balanceNumber}`;
   document.getElementById(
+    'birthdayNumber'
+  ).innerText = `Năng Lượng Ngày Sinh: ${birthdayNumber}`;
+  document.getElementById(
     'coreStrengthNumber'
   ).innerText = `Năng Lượng Thành Phần Nổi Trội: ${coreStrengthNumber}`;
   document.getElementById(
     'personalYearNumber'
-  ).innerText = `Năm Thần Số: ${personalYearNumber}`;
+  ).innerText = `Năm Cá Nhân: ${personalYearNumber}`;
   document.getElementById('lessonDebt').innerText = `Nợ Bài Học: ${lessonDebt}`;
   document.getElementById(
     'karmicDebtNumber'
@@ -345,6 +354,7 @@ function calculateNumerology() {
   const personalityNumber = getPersonalityNumber(name);
   const destinyNumber = getDestinyNumber(name);
   const balanceNumber = getBalanceNumber(name);
+  const birthdayNumber = getbirthdayNumber(day);
   const coreStrengthNumber = getCoreStrengthNumber(name);
   const personalYearNumber = getPersonalYearNumber(day, month, year);
   const lessonDebt = getLessonDebt(name);
@@ -363,13 +373,14 @@ function calculateNumerology() {
     ['Sứ Mệnh Cuộc Đời', lifePathNumber],
     ['Tố Chất Tiềm Ẩn', expressionNumber],
     ['Động Lực Bên Trong', soulUrgeNumber],
-    ['Thái Độ Bên Ngoài', attitudeNumber],
+    ['Thái Độ Thể Hiện', attitudeNumber],
     ['Phản Ứng Ban Đầu', personalityNumber],
     ['Mong Muốn Ban Đầu', destinyNumber],
     ['Cân Bằng Tâm Lý', balanceNumber],
-    ['Chỉ Số Phát Triển', personalityNumber],
+    ['Chỉ Số Dẫn Đường', personalityNumber],
+    ['Năng Lượng Ngày Sinh', birthdayNumber],
     ['Năng Lượng Thành Phần Nổi Trội', coreStrengthNumber],
-    ['Năm Thần Số', personalYearNumber],
+    ['Năm Cá Nhân', personalYearNumber],
     ['Nợ Bài Học', lessonDebt],
   ];
 
@@ -383,3 +394,12 @@ function calculateNumerology() {
     resultsTableBody.appendChild(row);
   });
 }
+// Lấy nút và iframe
+const showFormButton = document.getElementById('show-form');
+const googleForm = document.getElementById('google-form');
+
+// Gắn sự kiện click
+showFormButton.addEventListener('click', () => {
+    googleForm.style.display = 'block'; // Hiển thị Google Form
+    showFormButton.style.display = 'none'; // Ẩn nút sau khi bấm
+});

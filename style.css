@@ -11,20 +11,33 @@ body {
 /* Định dạng cho phần container */
 .container {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 100px;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Background */
+.background {
+  position: fixed; /* Cố định ảnh nền */
+  top: 0;
+  left: 0;
+  width: 100%; /* Phủ toàn bộ chiều rộng */
+  height: 100%; /* Phủ toàn bộ chiều cao */
+  background-size: cover; /* Ảnh phủ kín */
+  background-repeat: no-repeat; /* Không lặp ảnh */
+  background-position: center; /* Căn giữa ảnh */
+  z-index: -1; /* Đưa thẻ nền ra sau nội dung */
+}
+
 /* Định dạng cho logo */
-.logo {
+/* .logo {
   width: 100px; /* Kích thước logo */
   height: auto;
   display: block;
   margin: 0 auto;
-}
+} */
 
 /* Định dạng cho tiêu đề */
 h1 {
@@ -73,7 +86,7 @@ button:hover {
   width: 70%;
   border-collapse: collapse;
   margin-top: 20px;
-  font-size: 16px;
+  font-size: 15px;
   margin: 20px auto;
 }
 
@@ -128,4 +141,10 @@ button:hover {
 }
 .contact-messenger {
   background-color: #00B2FF;
+}
+
+/* Google form */
+#google-form {
+  display: none; /* Ẩn Google Form ban đầu */
+  margin-top: 20px;
 }

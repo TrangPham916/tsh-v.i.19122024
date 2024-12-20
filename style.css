@@ -40,7 +40,7 @@ html{
 .container {
   position: relative;
   margin: auto;
-  width: calc(100% - 200px);
+  width: 100vw;
   max-width: 500px; /* Đặt giới hạn chiều rộng */
   padding: 10px;
   /* background: white; Nền trắng cho nội dung */

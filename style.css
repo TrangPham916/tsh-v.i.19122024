@@ -7,36 +7,51 @@ body {
   padding: 0;
   text-align: center;
 }
+html{
+  font-size: 62.5%;
+}
 
-/* Background */
+/* Cha bao bọc toàn bộ */
+.wrapper {
+  position: relative;
+  width: 100vw; /* Phủ toàn bộ chiều rộng */
+  height: 100vh; /* Phủ toàn bộ chiều cao */
+  /* overflow: hidden; Đảm bảo không có nội dung vượt ra ngoài */
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  /* align-items: center; Căn giữa theo chiều dọc */
+}
+
+/* Background (giữ 100vh và tự động scale theo tỷ lệ chiều rộng) */
 .background {
-  position: fixed; /* Cố định ảnh nền */
-  top: 0;
-  left: 0;
-  width: 100vw; /* Chiều rộng nền bằng chiều rộng viewport */
-  height: 100vh; /* Chiều cao nền bằng chiều cao viewport */
-  background-size: contain; /* Đảm bảo ảnh giữ tỷ lệ gốc */
-  background-repeat: no-repeat; /* Không lặp ảnh */
-  background-position: center; /* Ảnh căn giữa */
-  z-index: -1; /* Đưa thẻ nền ra sau nội dung */
+  position: absolute;
+  top: 50%; /* Đưa tâm ảnh nền vào giữa khung hình */
+  left: 50%;
+  width: auto; /* Chiều rộng tự động theo tỷ lệ */
+  height: 100vh; /* Giữ chiều cao luôn là 100% màn hình */
+  transform: translate(-50%, -50%); /* Căn giữa chính xác */
+  background-size: cover; /* Đảm bảo ảnh phủ kín */
+  background-repeat: no-repeat; /* Không lặp lại ảnh */
+  background-position: center; /* Căn giữa ảnh */
+  z-index: -1; /* Đưa ảnh nền ra sau nội dung */
 }
 
 /* Container */
 .container {
-  max-width: 90%; /* Giới hạn chiều rộng để container không chạm viền */
-  max-height: 90%; /* Giới hạn chiều cao tương tự */
-  width: auto; /* Để chiều rộng theo tỷ lệ */
-  height: auto; /* Để chiều cao theo tỷ lệ */
-  margin: auto; /* Căn giữa container */
-  padding: 20px;
+  position: relative;
+  margin: auto;
+  width: calc(100% - 200px);
+  max-width: 500px; /* Đặt giới hạn chiều rộng */
+  padding: 10px;
+  /* background: white; Nền trắng cho nội dung */
+
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: absolute; /* Đặt container theo kích thước viewport */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Căn giữa theo chiều ngang và dọc */
-  background-color: white; /* Màu nền container */
+  text-align: center; /* Căn giữa nội dung text */
+  z-index: 1; /* Nội dung nổi lên trên background */
 }
+
+
 
 /* Định dạng cho logo */
 /* .logo {
@@ -50,7 +65,7 @@ body {
 h1 {
   text-align: center;
   color: #1a3b5d;
-  font-size: 24px;
+  font-size: 2rem;
 }
 
 /* Định dạng cho các nhãn và trường nhập liệu */
@@ -75,12 +90,12 @@ button {
   display: block;
   text-align: center;
   margin: auto;
-  padding: 10px;
-  background-color: #6eaadb;
+  padding: 7px;
+  background-color: #19c3da;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 
@@ -90,17 +105,17 @@ button:hover {
 
 /* Định dạng cho bảng kết quả */
 .results {
-  width: 70%;
+  width: 90%;
   border-collapse: collapse;
   margin-top: 20px;
-  font-size: 15px;
-  margin: 20px auto;
+  font-size: 1.12em;
+  margin: 10px auto;
 }
 
 .results th,
 .results td {
   border: 1px solid #ccc;
-  padding: 10px; */
+  padding: 7px;
 }
 
 .results th {
@@ -120,15 +135,18 @@ button:hover {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+.contact-icons img{
+  width: 90%;
 }
 .contact-icons a {
   text-decoration: none;
   color: white;
-  font-size: 40px;
+  font-size: rem;
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -149,9 +167,6 @@ button:hover {
 .contact-messenger {
   background-color: #00B2FF;
 }
-
-/* Google form */
-#google-form {
-  display: none; /* Ẩn Google Form ban đầu */
-  margin-top: 20px;
+.form-luan-giai a{
+  text-decoration: none;
 }
